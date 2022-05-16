@@ -13,13 +13,8 @@ smartfall at 31.25 Hz with gravity and y axis in g,508 falls
 path = "C:\python\FallDetection\dataset\smartwatch"
 os.chdir(path)
 file=np.load("file.npy")
-print(file.shape)
 
-print(file[1])
-print("shape train x")
-print(file.shape)
-print(file.shape[0])
-print("telos")
+
 array = np.zeros((2896))
 
 
@@ -31,18 +26,12 @@ for i in range(0,len(array)):
     else:
         array[i]=float(0.00)
 
-print("llllllllllll")
-print(file[1].shape)
-print("edwwwwwwwwwwwwwwwwwwwwwwwwww")
-print(array[0])
-print(array)
-print(len(array))
+
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D, Conv1D, MaxPooling1D , Reshape
 
-import matplotlib.pyplot as plt
 
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.layers import  Flatten, Dense
@@ -59,7 +48,7 @@ array = np_utils.to_categorical(array, 2)
 time_periods=200
 channels=3
 file,array=testfi()
-print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+
 print(file.shape)
 print(array.shape)
 print(array)
@@ -72,8 +61,7 @@ file=file[1:len(file)]
 array=array[1:len(array)]
 np.save('windows_of_samples_22102021.npy', file)
 np.save('labels_of_samples_22102021.npy', array)
-print(file)
-print(array)
+
 ##################################
 file=np.load("finalwindows610.npy")
 
